@@ -12,16 +12,51 @@
 
 <div class="container-fluid">
 
-  ### Week 1: Introduction 
+  ### Week 4: Microcontroller Programming 
 
-  Here is an image: 
+  This week's assignment was rather open-ended: program an Arduino Uno to do something.
+  Immediately after hearing this prompt, my mind turned to a challenge faced by millions of people in New England, including me: seasonal depression. Here in Cambridge, winters tend to be long and dark, a far cry from the sunlight I grew up in. The only antidote to the winter sadness this causes is the celebration of Christmas; seeing people party, have fun, and rejoice can temporarily keep the depression at bay. However, this only happens in the runup to December 25th. Winter extends far beyond that, into January and February. Wouldn't it be nice if we could have a little bit of Christmas cheer on tap at any time?
 
-  ![image of embroidery](./sew.png)
+  To do this, I decided to create an Arduino-controlled circuit that can play Jingle Bells, accompanied by an LED light show.
+  Below is a schematic of the circuit in TinkerCAD.
+  [mockup](./tinkercadmockup.jpg)
+  Each LED receives power from an Arduino pin, allowing for them to be individually controlled. A piezoelectric vibrating motor is also connected to a pin. All the pin connections then connect to ground.
 
-  And here is a	[link](../index.html).
+  To implement the song and light show in this system, it helps to begin by conceptualizing what a musical piece is. Jingle Bells is written in 4/4 time signature, which means the song is broken up into measures, each of which is composed of 4 quarternotes (or 2 halfnotes, or 2 quarternotes and a halfnote, or any combination of notes that add up to a full measure).
 
-      
-   
+  Therefore, the song can be seen as a set of single sounds with pauses in between them. These sounds can be created by the vibrating motor. The Arduino IDE has an inbuilt function called ```tone()```, which can be used to send power from an Arduino pin at a certain frequency, translating to noise at that frequency.
+
+  At the same time, the LEDs can be manipulated using ```digitalWrite()``` to create arrangements to pair with the sounds.
+
+  Paired together, a sample measure composed of two quarternotes and a halfnote looks like:
+  ```
+  // Measure 1
+  digitalWrite(1, HIGH);
+  digitalWrite(2, LOW);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, LOW);
+  digitalWrite(5, HIGH);
+  tone(6, 329.63, 600); //e4
+  delay(750);
+  
+  digitalWrite(1, LOW);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, LOW);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, LOW);
+  tone(6, 329.63, 600); //e4
+  delay(750);
+
+  digitalWrite(1, HIGH);
+  digitalWrite(2, LOW);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, LOW);
+  digitalWrite(5, HIGH);
+  tone(6, 329.63, 1200);  //e4
+  delay(1500);
+  ```
+The final product, playing the first two bars of Jingle Bells, is below:
+[mockup](./jinglebells.mp4)
 
 
 
