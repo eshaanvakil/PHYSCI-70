@@ -19,7 +19,9 @@
 
   To do this, I decided to create an Arduino-controlled circuit that can play Jingle Bells, accompanied by an LED light show.
   Below is a schematic of the circuit in TinkerCAD.
+
   ![mockup](./tinkercadmockup.jpg)
+
   Each LED receives power from an Arduino pin, allowing for them to be individually controlled. A piezoelectric vibrating motor is also connected to a pin. All the pin connections then connect to ground.
 
   To implement the song and light show in this system, it helps to begin by conceptualizing what a musical piece is. Jingle Bells is written in 4/4 time signature, which means the song is broken up into measures, each of which is composed of 4 quarternotes (or 2 halfnotes, or 2 quarternotes and a halfnote, or any combination of notes that add up to a full measure).
@@ -56,6 +58,7 @@
   delay(1500);
   ```
 The final product, playing the first two bars of Jingle Bells, is below:
+
 [Jingle Bells](https://youtu.be/529z4H-Ubw8)
 
 
