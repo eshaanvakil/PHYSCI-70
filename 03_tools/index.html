@@ -16,12 +16,14 @@
 
   This week's assignment was to create something that moves. I first imagined creating a replica of a medieval orrery:
 
-  <img src="./orrery.jpg">
+  <img src="./photos/orrery.jpg">
 
   However, I quickly realized that the gear system of an orrery is much more complicated than I first imagined, involving dozens of offset gears that rotate at calculated intervals. However, there is one alternative that is somewhat similar: a planetary gearbox.
   This system is an epicyclic gear composed of a sun gear (in the center) that turns four planetary gears, all contained within a larger ring gear.
 
-  <img src="./planetary.jpg">
+  <img src="./photos/planetary.jpg">
+
+  The advantages of this model is that it mimics a solar system: planetary gears rotate around the "sun," while also themselves spinning. By putting holes in the gears and running axles topped with representations of planets through them, I can mimic an orrery without biting off more than I can chew.
 
   I first began by designing a gearbox in Fusion360.
   I researched how to create compatible gears in Fusion360, and learned that for gears to mesh, their modules must be the same. In addition, for gears to fit properly in a planetary configuration, the diametral pitch of all the gears in a straight line (two planetary gears and the sun gear) must equal the diametral pitch of the ring gear.
@@ -33,6 +35,18 @@
   I finally created four planetary gears, each with a module of 7.5, pitch diameter of 90, and a backlash of 0.2 mm.
 
   The pitch diameter of two planetary gears and a sun gear added together equals the pitch diameter of the ring gear (240 mm), meaning that all the gears will mesh together correctly - at least theoretically.
+
+  I then used the laser cutter to cut these gears out of acrylic.
+
+  <img src="./photos/cutgears.jpg" width="50%" height="50%">
+
+  Once the set of gears was assembled, I cut out another circle of acrylic 250 mm in diameter and hot-glued the ring gear to the circle - this circle would serve as a baseplate for the gears to rest on.
+
+  I then sawed off four pieces of wooden dowel, six inches each, and attached each to the central hole of a planetary gear, to serve as stands for my planets. I used a 9 inch dowel for the sun gear, which extended down under the baseplate to attach a motor to.
+
+  Now that the gearbox is mostly assembled, the next task is to attach the motor to the central "sun gear" axle. To do this, I measured the oval-shaped shaft of a yellow motor with a caliper and used a power drill to cut the same dimensions into a piece of scrapwood. This will serve as a coupling for the motor shaft and the axle.
+
+  <img src="./photos/coupling.jpg" width="50%" height="50%">
 
       
    
