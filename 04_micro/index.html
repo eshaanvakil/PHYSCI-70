@@ -24,9 +24,21 @@
 
   Each LED receives power from an Arduino pin, allowing for them to be individually controlled. A piezoelectric vibrating motor is also connected to a pin. All the pin connections then connect to ground.
 
+  I soldered the piezoelectric motor to two wires so it could connect to the breadboard.
+
+  <img src="./solder.jpg" width="50%" height="50%">
+
+  Fully completed, the circuit appears as below:
+
+  <img src="./circuit.jpg" width="50%" height="50%">  
+
   To implement the song and light show in this system, it helps to begin by conceptualizing what a musical piece is. Jingle Bells is written in 4/4 time signature, which means the song is broken up into measures, each of which is composed of 4 quarternotes (or 2 halfnotes, or 2 quarternotes and a halfnote, or any combination of notes that add up to a full measure).
 
   Therefore, the song can be seen as a set of single sounds with pauses in between them. These sounds can be created by the vibrating motor. The Arduino IDE has an inbuilt function called ```tone()```, which can be used to send power from an Arduino pin at a certain frequency, translating to noise at that frequency.
+
+  To create sounds that match up with the notes of the song, I searched for a list of musical notes with corresponding frequencies in Hz, and found the below table from Wikipedia.
+
+  <img src="./frequency.jpg">
 
   At the same time, the LEDs can be manipulated using ```digitalWrite()``` to create arrangements to pair with the sounds.
 
@@ -61,6 +73,7 @@ The final product, playing the first two bars of Jingle Bells, is below:
 
 [Jingle Bells](https://youtu.be/529z4H-Ubw8)
 
+<a download href="./sketch_feb20a.ino">Download my sketch here</a>
 
 
 </xmp>
