@@ -16,7 +16,9 @@
 
   For output week, I was fascinated by the individually-addressable LED strips. While these are most well-known in popular culture as "the Tiktok lights" people decorate their rooms with, I wanted to find a more practical application for them. By using these LED strips as indicator lights and pairing it with a thermistor, I could create a thermometer that easily reports if someone has a fever or not.
 
-  I first began by figuring out how the LED strips actually work using the FastLED library for the Arduino IDE. Using it, I cut a strip of four LEDs and wrote the following program:
+  I first began by figuring out how the LED strips actually work using the FastLED library for the Arduino IDE. What I learned is that FastLED treats each LED in a strip as a object, which it initializes and places in an array. The elements in this array can then be referenced and edited using a function called CRBG(), which gives the LED RGB values.
+
+  Using this, I cut a strip of four LEDs and wrote the following program:
   ```
   #include <FastLED.h>
 
@@ -52,6 +54,8 @@
 <img src="4leds.jpg">
 
   This simple program initializes the four LEDs in an array and then assigns them colors in a loop. I then decided to add the thermistor.
+
+  I then had to learn how to read thermistor input, which I did using [this tutorial](https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/). Thermistors natively measure temperature on a scale of 0 to 1023, which corresponds to 0 C to 100 C for most thermistors. This analog input can then be converted to Fahrenheit using instructions in the tutorial.
 
   I plugged in a thermistor and pulldown resistor to an analog pin and the LED pin to a digital pin, and then wrote an Arduino sketch which takes the input from the thermistor, converts it to Fahrenheit, and then uses Arduino multitasking to check every half second to see if the temperature is above 80 degrees (I lowered the threshold from 99 degrees to make it possible to test this using the body heat from my hands). If it is above the threshold, all LEDs turn green. Otherwise, they're red.
   The code and circuit diagram are below.
