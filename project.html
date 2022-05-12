@@ -19,12 +19,12 @@
   #### About the project
   I'm from the beautiful city of Las Vegas, and like many other cities in the Southwest, Las Vegas has a water problem. Because of a twenty-year-long megadrought and about a century of irresponsible consumption, water has become increasingly scarce in the region. This "slow-motion apocalypse" is largely driven by one sector - agriculture. Some 70% of the water in the Southwest is used by farmers and ranchers in California and Arizona, in regions where such inefficient irrigation methods like flood irrigation still predominate.
 
-  My idea was to create an automated and water-efficient irrigation system that would detect soil humidity to minimize water wastage. In order to make this an actually useful system, I set two additional goals: this irrigation system should be portable, modular, and use relatively simple fabrication techniques in order to enhance reproducibility.
+  My idea was to create an automated and water-efficient irrigation system that would detect soil humidity to minimize water wastage. In order to make this an actually useful system, I set two additional goals: this irrigation system should be portable, modular, and use relatively simple fabrication techniques in order to enhance reproducibility. Ideally the total system would cost under thirty dollars.
 
   #### The design
   My design relies on peristaltic pumps, which are small low-energy pumps that transfer water without needing impellers. In a peristaltic pump, a flexible tube is pressed against a hard track by a set of rollers. The rollers pinch the tube, creating several segments that are watertight. The rollers then force the water-filled segments to move, transferring water and creating a pressure gradient that further primes the pump. I used a peristaltic pump from Thingiverse for this project, which you can find [here](https://www.thingiverse.com/thing:1696019/files).
 
-  <img src="./project_img/peristaltic.jpg">
+  <img src="./project_img/peristaltic.jpg" width="50%" height="50%">
 
   This pump has to be driven by a motor, and I selected an [Adafruit large-core DC geared motor](https://www.adafruit.com/product/4416).
 
@@ -43,9 +43,15 @@
 
   I connected the motor and hygrometer to the Uno and then placed all the electronic components in a laser-cut cardboard box.
 
-  <img src="./project_img/comp_open.jpg">
+  <img src="./project_img/comp_open.jpg" width="50%" height="50%">
 
-  <img src="./project_img/comp_box.jpg">
+  <img src="./project_img/comp_box.jpg" width="50%" height="50%">
+
+  Below is a circuit diagram of the electronics.
+
+  <img src="./project_img/Circuit_Diagram.jpg">
+
+  Overall, the average cost of all the components used was approximately $40, somewhat over my initial goal of $30, but still reasonable.
 
   ### The code
   I used the principle of Arduino multitasking to write a program that initializes a hygrometer as an instance of a Hygrometer class. This hygrometer object receives humidity data from the pin that the physical hygrometer is attached to. This data is then referenced every 30 seconds, and if the humidity is below a "dry" threshold, the motor spins for 10 seconds, watering the soil.
